@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <script src="/app.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Gallery</title>
+</head>
+<body>
+    <section class="home">
+        <div class="container">
+            <h2 class="text-center">Gallery</h2>
+            <div class="row">
+                <div class="col-12 main-img p-0">
+                    <img src="https://source.unsplash.com/user/erondu/400x400" alt="" id="current">
+                </div>
+            </div>
+            <div class="row imgs">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-0">
+                    <img src="https://source.unsplash.com/user/erondu/400x400" alt="">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-0">
+                    <img src="https://picsum.photos/200/300" alt="">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-0">
+                    <img src="https://picsum.photos/id/10/300" alt="">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-0">
+                    <img src="https://picsum.photos/id/1001/300" alt="">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        const current=document.querySelector('#current');
+const imgs=document.querySelector('.imgs');
+const img=document.querySelectorAll('.imgs img');
+const opacity = 0.3;
+img[0].style.opacity = opacity;
+
+imgs.addEventListener('click',imgClick);
+
+function imgClick(e){
+    img.forEach(img=>(img.style.opacity=1));
+
+    current.src=e.target.src;
+
+    current.classList.add('fade-in');
+
+    setTimeout(()=>current.classList.remove('fade-in'),500);
+    e.target.style.opacity = opacity;
+}
+
+    </script>
+</body>
+</html>
